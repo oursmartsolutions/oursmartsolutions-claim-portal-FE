@@ -1,5 +1,9 @@
-/node_modules
-/dist
-/.tmp
-/.sass-cache
-/bower_components
+*.tmproj
+*.bak
+.idea/
+bower_components/
+node_modules/
+npm-debug.log
+dist/
+.tmp
+/nbproject/private/
