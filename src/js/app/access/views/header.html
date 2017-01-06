@@ -10,10 +10,11 @@
             <span class="icon-bar"></span>
           </button>
           <div class="navbar-brand">
-            <a href="index.html"><h1><span>smart</span>Solutions</h1></a>
+            <a href="index.html">
+              <h1><span>smart</span>Solutions</h1>
+            </a>
           </div>
         </div>
-
         <div class="navbar-collapse collapse">
           <div class="menu">
             <ul class="nav nav-tabs" role="tablist">
@@ -22,7 +23,7 @@
               <li data-ng-if="!showLogOut" role="presentation"><a ui-sref="app.services">Services</a></li>
               <li data-ng-if="!showLogOut" role="presentation"><a ui-sref="app.blog">Blog</a></li>
               <li data-ng-if="!showLogOut" role="presentation"><a ui-sref="app.project_details">Contact</a></li>
-              <li data-ng-if="showLogOut" role="presentation"><a ui-sref="app.signin" class="sign-out-btn">Sign Out</a></li>
+              <li data-ng-if="showLogOut" role="presentation"><a data-ng-click="logout()" class="sign-out-btn">Sign Out</a></li>
             </ul>
           </div>
         </div>

@@ -1,0 +1,13 @@
+{
+  "app": {
+    "name": "Claime Portal",
+    "version": "1.0.1",
+    "icon": "",
+    "favicon": "",
+    "iconMedium": "img/logo.png",
+    "apiUrl": "https://claime-backend-hapi.herokuapp.com",
+    "locUri": "http://localhost:3000",
+    "loginRedirect": "app.profile",
+    "appRoot": "/access/sign-in"
+  }
+}

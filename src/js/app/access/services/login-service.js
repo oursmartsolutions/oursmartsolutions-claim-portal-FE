@@ -20,23 +20,36 @@
 
 var app = angular.module('claimPortalApp');
 
-app.service('loginService', ['$http', '$q', function ($http, $q) {
-    var localUri = 'http://localhost:3000';
-    //var appUri = "https://claim-backend.herokuapp.com"
-    this.login = function (data) {
-        var deferred = $q.defer();
-        $http({
-            method: 'POST',
-            url: localUri + '/login',
-            data: data
-        }).success(function (data) {
-            deferred.resolve(data);
-            console.log(data);
-        }).error(function (err) {
-            deferred.resolve(err);
-        });
-        return deferred.promise;
-    }
+app.service('loginService', ['$http', '$q', 'appConfig', '$cookies', function ($http, $q, appConfig, $cookies) {
+  //   var BASEURI = appConfig.apiUrl;
+  var BASEURI = appConfig.locUri
+  this.login = function (data) {
+    var deferred = $q.defer();
+    $http({
+      method: 'POST',
+      url: BASEURI + '/api/login',
+      data: data
+    }).success(function (data) {
+      var user = {
+        token: data.authHeader,
+        session: data.session,
+        userDetails: data.user,
+        resources: data.resources
+      };
+      $cookies.put('userData', JSON.stringify(user));
+      deferred.resolve(data);
+      console.log(data);
 
+    }).error(function (err) {
+      deferred.resolve(err);
+    });
+    return deferred.promise;
+  }
 
+  this.logout = function () {
+    return $http({
+      method: 'DELETE',
+      url: BASEURI + '/api/logout'
+    });
+  };
 }]);

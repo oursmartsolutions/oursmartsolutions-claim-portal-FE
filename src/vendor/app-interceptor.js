@@ -1,13 +1,14 @@
 'use strict';
 angular
-    .module('claimPortalApp', [])
+    .module('claimPortalApp')
     .config(function ($httpProvider) {
         $httpProvider.interceptors.push('myInterceptor')
     })
     .factory('myInterceptor', function ($q, $location) {
         return {
             request: function (config) {
-                // config.headers = config.header || {};
+
+                 //config.headers =  {'Content-Type': 'application/json'};
                 //   if ($localStorage.token) { config.headers.Authorization = 'Bearer ' + $localStorage.token;
                 //  }
                 return config;
