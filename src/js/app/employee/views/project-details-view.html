@@ -1,42 +1,35 @@
-
- <div class="container">
+<div class="container">
   <div class="col-md-12 text-center m-t-20">
     <md-radio-group ng-model="data.group1" class="display-flex">
-      <md-radio-button value="Apple" class="md-primary"  ng-value="model.preplanned"><span class="color-voilet">Pre Planned</span></md-radio-button>
-     <md-radio-button value="Banana" class="md-primary m-l-20"> <span class="color-voilet">Post Planned</span> </md-radio-button>
+      <md-radio-button value="Apple" class="md-primary" ng-value="model.preplanned"><span class="color-voilet">Pre Planned</span></md-radio-button>
+      <md-radio-button value="Banana" class="md-primary m-l-20"> <span class="color-voilet">Post Planned</span> </md-radio-button>
     </md-radio-group>
   </div>
   <div class="col-md-12">
     <div>
       <table class="tb-border table table-parent">
         <thead class="tb-header-bg">
-        <tr>
-          <th>Project Name</th>
-          <th>Location </th>
-          <th>Budget</th>
-        </tr>
+          <tr>
+            <th>Project Name</th>
+            <th>Location </th>
+            <th>Budget</th>
+          </tr>
         </thead>
         <tbody>
-        <!--data-ng-repeat="deviceObj in (filteredDeviceArr = (mapLstVwCtrl.model.deviceDataArr.slice(((mapLstVwCtrl.currentPage-1)*mapLstVwCtrl.itemsPerPage), ((mapLstVwCtrl.currentPage)*mapLstVwCtrl.itemsPerPage)) | filter: mapLstVwCtrl.model.searchDeviceStr))"-->
-        <tr class="tr-hover-color"
-            data-ng-click="prjctDtlsCtrl.onSelectingProject(projectObj,$index)"
-          data-ng-repeat="projectObj in (filteredArr=(prjctDtlsCtrl.projectDetailsArr.slice(((prjctDtlsCtrl.paging.current-1)*prjctDtlsCtrl.paging.itemsperpage),((prjctDtlsCtrl.paging.current)*prjctDtlsCtrl.paging.itemsperpage))))">
-          <td class="relative-position">{{projectObj.project}}</td>
-          <td class="relative-position">{{projectObj.location}}</td>
-          <td class="relative-position">{{projectObj.budget}}
-            <i class="fa fa-check right-gap pull-right selectedProject" type="radio"
-                                       data-ng-if="projectObj.isSelected"
-                                       aria-hidden="true"></i></td>
-        </tr>
+          <!--data-ng-repeat="deviceObj in (filteredDeviceArr = (mapLstVwCtrl.model.deviceDataArr.slice(((mapLstVwCtrl.currentPage-1)*mapLstVwCtrl.itemsPerPage), ((mapLstVwCtrl.currentPage)*mapLstVwCtrl.itemsPerPage)) | filter: mapLstVwCtrl.model.searchDeviceStr))"-->
+          <tr class="tr-hover-color" data-ng-click="prjctDtlsCtrl.onSelectingProject(projectObj,$index)" data-ng-repeat="projectObj in (filteredArr=(prjctDtlsCtrl.projectDetailsArr.slice(((prjctDtlsCtrl.paging.current-1)*prjctDtlsCtrl.paging.itemsperpage),((prjctDtlsCtrl.paging.current)*prjctDtlsCtrl.paging.itemsperpage))))">
+            <td class="relative-position">{{projectObj.projectName}}</td>
+            <td class="relative-position">{{projectObj.onSite.location}}</td>
+            <td class="relative-position">{{projectObj.onSite.allotedBudget}}
+              <i class="fa fa-check right-gap pull-right selectedProject" type="radio" data-ng-if="projectObj.isSelected" aria-hidden="true"></i></td>
+          </tr>
         </tbody>
       </table>
     </div>
-
     <div>
-      <section >
-        <cl-paging flex cl-pages="filteredArr.length" , cl-steps="prjctDtlsCtrl.projectDetailsArr.length/prjctDtlsCtrl.paging.itemsperpage" ,
-                   cl-align="center center" ,
-                   cl-current-page="prjctDtlsCtrl.paging.current"></cl-paging>
+      <section>
+        <cl-paging flex cl-pages="filteredArr.length" , cl-steps="prjctDtlsCtrl.projectDetailsArr.length/prjctDtlsCtrl.paging.itemsperpage"
+          , cl-align="center center" , cl-current-page="prjctDtlsCtrl.paging.current"></cl-paging>
       </section>
     </div>
     <div>
@@ -49,5 +42,4 @@
         <span><i class="fa fa-caret-right" aria-hidden="true"></i></span>
       </md-button>
     </div>
-</div>
-
+  </div>

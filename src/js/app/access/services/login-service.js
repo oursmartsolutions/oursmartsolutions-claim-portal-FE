@@ -21,7 +21,7 @@
 var app = angular.module('claimPortalApp');
 
 app.service('loginService', ['$http', '$q', 'appConfig', '$cookies', function ($http, $q, appConfig, $cookies) {
-  //   var BASEURI = appConfig.apiUrl;
+   //  var BASEURI = appConfig.apiUrl;
   var BASEURI = appConfig.locUri
   this.login = function (data) {
     var deferred = $q.defer();
